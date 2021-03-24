@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  hapi:
+    image: "hapiproject/hapi:latest"
+    ports:
+      - "8080:8080"
