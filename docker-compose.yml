@@ -5,9 +5,13 @@ services:
     image: "hapiproject/hapi:latest"
     ports:
       - "8080:8080"
+    environment:
+      - hapi.fhir.fhir_version=$FHIR_VERSION
+
   definition-importer:
     depends_on:
       - hapi
     build: definition-importer/
     environment:
       - FHIR_BASE=http://hapi:8080/fhir
+      - FHIR_VERSION=$FHIR_VERSION

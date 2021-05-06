@@ -1,2 +1,2 @@
-fhirclient
+fhirclient==4.0.0
 jupyter
