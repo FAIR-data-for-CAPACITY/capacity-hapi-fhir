@@ -8,10 +8,9 @@ ENV HAPI_CLI_URL=https://github.com/hapifhir/hapi-fhir/releases/download/v5.3.0/
 
 ARG TARGET_DIR=hapi-fhir-cli
 
-RUN mkdir /app /app/$TARGET_DIR
-WORKDIR /app
-RUN curl -o archive.tar.bz2 -LJO $HAPI_CLI_URL
-RUN tar xjf archive.tar.bz2 -C $TARGET_DIR
+RUN mkdir -p /app/$TARGET_DIR
 
 WORKDIR /app/$TARGET_DIR
+RUN curl -o archive.tar.bz2 -LJ $HAPI_CLI_URL && tar xjf archive.tar.bz2 && rm archive.tar.bz2
+
 CMD ./hapi-fhir-cli upload-definitions -t $FHIR_BASE -v $FHIR_VERSION
