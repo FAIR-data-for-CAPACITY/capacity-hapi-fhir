@@ -35,7 +35,9 @@ everything is set to STU3 by default but if you ever wish to change this to anot
 to do the following:
 
 1. The HAPI FHIR server and CLI version can be changed in one single step. Simply change the variable `FHIR_VERSION` 
-   to the appropriate version.
+   to the appropriate version in your `.env` file. Valid values are the values supported by the hapi fhir cli tool, 
+   which are currently `dstu2`, `dstu3`, `r4`, `r5`.
+
    
 2. The FHIR client needs to be set with ```pip install fhirclient==YOUR_FHIR_VERSION```. 
    Check the [FHIR client documentation](https://github.com/smart-on-fhir/client-py) how the fhir-client versions align
