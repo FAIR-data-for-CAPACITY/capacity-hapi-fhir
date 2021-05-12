@@ -1,2 +1,4 @@
 .idea/
 *.tar.bz2
+.ipynb_checkpoints
+.env
