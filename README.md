@@ -31,7 +31,7 @@ There are several versions of the FHIR spec, and in various parts of this projec
 - HAPI FHIR client
 
 Because these are three different components, the FHIR version needs to be set in three different places. Currently, 
-everything is set to DSTU3 by default but if you ever wish to change this to another version (e.g. R4) you will have 
+everything is set to STU3 by default but if you ever wish to change this to another version (e.g. R4) you will have 
 to do the following:
 
 1. The HAPI FHIR server and CLI version can be changed in one single step. Simply change the variable `FHIR_VERSION` 
@@ -40,3 +40,4 @@ to do the following:
 2. The FHIR client needs to be set with ```pip install fhirclient==YOUR_FHIR_VERSION```. 
    Check the [FHIR client documentation](https://github.com/smart-on-fhir/client-py) how the fhir-client versions align
    with the official FHIR specs.
+   
