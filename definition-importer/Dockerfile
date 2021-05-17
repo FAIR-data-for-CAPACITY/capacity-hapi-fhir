@@ -13,4 +13,4 @@ RUN mkdir -p /app/$TARGET_DIR
 WORKDIR /app/$TARGET_DIR
 RUN curl -o archive.tar.bz2 -LJ $HAPI_CLI_URL && tar xjf archive.tar.bz2 && rm archive.tar.bz2
 
-CMD ./hapi-fhir-cli upload-definitions -t $FHIR_BASE -v $FHIR_VERSION
+CMD ./hapi-fhir-cli upload-definitions -t $FHIR_BASE -v $FHIR_VERSION && ./hapi-fhir-cli upload-examples -t $FHIR_BASE -v $FHIR_VERSION
