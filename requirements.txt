@@ -1,3 +1,4 @@
 fhirclient==3.2.0
 jupyter
 click
+tqdm

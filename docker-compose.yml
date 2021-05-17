@@ -8,6 +8,12 @@ services:
     environment:
       - hapi.fhir.fhir_version=$FHIR_VERSION
       - hapi.fhir.enable_cql=true
+      - hapi.fhir.allow_external_references=true
+      - hapi.fhir.allow_contains_searches=true
+      - hapi.fhir.graphql_enabled=true
+      - hapi.fhir.allow_placeholder_references=true
+      - hapi.fhir.filter_search_enabled=true
+      - hapi.fhir.refuse_to_fetch_third_party_urls=false
 
   definition-importer:
     depends_on:

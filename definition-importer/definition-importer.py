@@ -27,7 +27,7 @@ OK_STATUS = {
 @click.option('--fhirversion', default=STU3, type=str)
 @click.option('--baseurl', type=str)
 def main(fhirversion, baseurl):
-    # process_definitions(baseurl, fhirversion)
+    process_definitions(baseurl, fhirversion)
 
     process_definitions(baseurl, fhirversion)
 
