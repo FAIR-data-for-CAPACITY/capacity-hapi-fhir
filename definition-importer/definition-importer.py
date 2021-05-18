@@ -27,14 +27,13 @@ OK_STATUS = {
 @click.option('--fhirversion', default=STU3, type=str)
 @click.option('--baseurl', type=str)
 def main(fhirversion, baseurl):
-    process_definitions(baseurl, fhirversion)
+    process_definitions(baseurl, SPEC_DOWNLOAD_TEMPLATE.format(fhir_version=fhirversion))
+    process_definitions(baseurl, EXAMPLE_DOWNLOAD_TEMPLATE.format(fhir_version=fhirversion))
 
-    process_definitions(baseurl, fhirversion)
 
-
-def process_definitions(baseurl, fhirversion):
-    example_files = retrieve_definitions(EXAMPLE_DOWNLOAD_TEMPLATE.format(fhir_version=fhirversion))
-    for file_path in tqdm(example_files):
+def process_definitions(baseurl, definition_url):
+    definition_files = retrieve_definitions(definition_url)
+    for file_path in tqdm(definition_files):
         if file_path.name.endswith(JSON_EXTENSION):
             with file_path.open('r') as f:
                 resource = json.load(f)
