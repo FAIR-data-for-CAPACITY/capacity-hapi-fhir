@@ -6,7 +6,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - hapi.fhir.fhir_version=$FHIR_VERSION
+      - hapi.fhir.fhir_version=DSTU3
       - hapi.fhir.enable_cql=true
       - hapi.fhir.allow_external_references=true
       - hapi.fhir.allow_contains_searches=true
@@ -15,10 +15,14 @@ services:
       - hapi.fhir.filter_search_enabled=true
       - hapi.fhir.refuse_to_fetch_third_party_urls=false
 
-  definition-importer:
+  import:
     depends_on:
       - hapi
-    build: definition-importer/
+    image: continuumio/miniconda3
     environment:
-      - FHIR_BASE=http://hapi:8080/fhir
+      - BASE_URL=http://hapi:8080/fhir
       - FHIR_VERSION=$FHIR_VERSION
+      - FHIRCLIENT_VERSION=3.0.0
+    volumes:
+      - ./definition-importer:/mnt/definition-importer
+    command: ["bash", "/mnt/definition-importer/import.sh"]
