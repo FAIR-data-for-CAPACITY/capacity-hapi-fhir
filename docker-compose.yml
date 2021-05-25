@@ -18,7 +18,7 @@ services:
   import:
     depends_on:
       - hapi
-    build: definition-importer/
+    build: .
     environment:
       - BASE_URL=http://hapi:8080/fhir
       - FHIR_VERSION=$FHIR_VERSION
