@@ -18,11 +18,8 @@ services:
   import:
     depends_on:
       - hapi
-    image: continuumio/miniconda3
+    build: definition-importer/
     environment:
       - BASE_URL=http://hapi:8080/fhir
       - FHIR_VERSION=$FHIR_VERSION
       - FHIRCLIENT_VERSION=3.0.0
-    volumes:
-      - ./definition-importer:/mnt/definition-importer
-    command: ["bash", "/mnt/definition-importer/import.sh"]
