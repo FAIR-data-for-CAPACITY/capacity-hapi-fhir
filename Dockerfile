@@ -9,7 +9,7 @@ ENV FHIRCLIENT_VERSION=3.0.0
 RUN mkdir /app
 RUN  pip install click tqdm
 
-COPY definition-importer /app
+COPY definition-importer.py /app/
 
 WORKDIR /app
 
